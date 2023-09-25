@@ -30,3 +30,10 @@ Definir k puede puede ser complicado de determinar ya que diferentes valores pue
 ## Desventajas
 - La maldición de la dimensionalidad: El algoritmo KNN tiende a ser víctima de la maldición de la dimensionalidad, lo que significa que no funciona bien con entradas de datos de alta dimensión.
 - No escala bien: Dado que KNN es un algoritmo perezoso, ocupa más memoria y almacenamiento de datos en comparación con otros clasificadores. Esto puede ser costoso desde una perspectiva de tiempo y dinero. Más memoria y almacenamiento aumentarán los gastos comerciales y más datos pueden tardar más en procesarse.
+
+## Experimentacion
+En la parte de experimentacion para el modelo de KNN, hemos graficado la precision del metodo para un rango de K.
+<p align="center">
+ <img width="1002" alt="image" src="https://github.com/LeoIsidro/Proyecto_1-MachineLearning/assets/90939274/9bd13e37-41ff-423d-94ec-fa68e5f7edf0">
+</p>
+Como podemos observar en la imagen la mejor precision del modelo ocurre con un k=20, por otro lado la peor precision ocurre cuando se tiene un k=6 o k=7, suponemos que esto ocurre debido a que es un valor muy pequeño de k lo que ocaciona un overfiting.
