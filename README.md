@@ -36,4 +36,4 @@ En la parte de experimentacion para el modelo de KNN, hemos graficado la precisi
 <p align="center">
  <img width="1002" alt="image" src="https://github.com/LeoIsidro/Proyecto_1-MachineLearning/assets/90939274/9bd13e37-41ff-423d-94ec-fa68e5f7edf0">
 </p>
-Como podemos observar en la imagen la mejor precision del modelo ocurre con un k=20, por otro lado la peor precision ocurre cuando se tiene un k=6 o k=7, suponemos que esto ocurre debido a que es un valor muy pequeño de k lo que ocaciona un overfiting.
+Como podemos observar en la imagen la mejor precision del modelo ocurre con un k=20, por otro lado la peor precision ocurre cuando se tiene un k=6 o k=7, suponemos que esto ocurre debido a que es un valor pequeño de k lo que ocaciona un overfiting, ademas podemos ver que apartir de k=20, la precision del modelo vuelve a decender, por lo cual podemos concluir con que los valores optimos de k ocurren hasta k=20.
