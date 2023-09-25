@@ -1,6 +1,5 @@
 from regresion_logistica import Regresion
 import numpy as np
-import numpy as np
 import pandas as pd
 from  skimage.io import imread, imshow
 import pywt
@@ -71,7 +70,7 @@ X_test = x[train + validation:]
 y_test = y[train + validation:]
 
 # Crear y entrenar el modelo
-modelo = Regresion(1000,0.000001)
+modelo = Regresion(1000,0.00000001)
 modelo.train(X_train, y_train)
 
 # Validacion
