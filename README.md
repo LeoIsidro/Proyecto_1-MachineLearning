@@ -10,7 +10,7 @@ El algoritmo de clasificación de k vecinos más cercanos, también conocido com
 Para determinar qué puntos de datos están más cerca de un punto de consulta determinado, será necesario calcular la distancia entre el punto de consulta y los otros puntos de datos. Estas métricas de distancia ayudan a formar límites de decisión, que dividen los puntos de consulta en diferentes regiones.
 
 En esta implementacion utilizaremos la distancia euclidiana, la cual esta formulada mediante la siguiente formula.
-<p aling="center">
+<p align="center">
  <img width="655" alt="image" src="https://github.com/LeoIsidro/Proyecto_1-MachineLearning/assets/90939274/758eedcf-ffb5-47db-ae11-120664eb6cb2">
 </p>
 
