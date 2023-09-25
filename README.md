@@ -1,9 +1,13 @@
 # Proyecto_1-MachineLearning
 
 
-## CLASIFICACION KNN
+## Clasificación KNN
 
 El algoritmo de clasificación de k vecinos más cercanos, también conocido como KNN o k-NN, es un clasificador de aprendizaje supervisado no paramétrico, que utiliza la proximidad para hacer clasificaciones o predicciones sobre la agrupación de un punto de datos individual.
+
+<p align="center">
+ <img width="702" alt="image" src="https://github.com/LeoIsidro/Proyecto_1-MachineLearning/assets/90939274/a517c354-34fa-440c-8c2f-87ae78b359f2">
+</p>
 
 ## ¿Como hallaremos la distancia a los K vecinos?
 
