@@ -42,4 +42,4 @@ Tambien graficamos hasta un K=50.
 <p align="center">
 <img width="999" alt="image" src="https://github.com/LeoIsidro/Proyecto_1-MachineLearning/assets/90939274/82ba0809-43f7-41a8-8e66-dea61678dd6d">
 </p>
-Como podemos ver en esta nueva grafica ocurre una gran variacion a comparacion de la anterior, en este caso la mejor precicion del modelo ocurre con K=8 o 9, la precision se mantiene en valores medios en el rango de k=10 a k=40, despues de eso la precision empieza a decencer. 
+Como podemos ver en esta nueva grafica ocurre una gran variacion a comparacion de la anterior, en este caso la mejor precicion del modelo ocurre con K=8 o 9, la precision se mantiene en valores medios en el rango de k=10 a k=40, despues de eso la precision empieza a decender. Por tanto concluimos que a medida que el valor de K se hace muy grande la precision empieza a disminuir de manera significativa. 
