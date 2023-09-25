@@ -6,28 +6,32 @@ class KNN:
     def __init__(self, k=3):
         self.k = k
     
-    def aprendizaje(self,X,C):
-        self.X=X # matriz de vectores de caracteristicas
-        self.c=C # clases asociadas a cada vector x(n)
-        self.n_muestras=X.shape[1] # cantidad de muestras
+    def aprendizaje(self,X,Y):
+        self.x=X # matriz de vectores caracteristicos
+        self.y=Y # clases asociadas a cada vector x(n)
+        self.muestras=len(X[0]) # cantidad de muestras
     
-    def clasificacion(self,Y):
+    def clasificacion(self,X_train):
         clases=[]
-        for i in range(Y.shape[1]): # por cada vector y(n) a clasificar
-            distancias=np.empty(self.n_muestras)
-            for n in range(self.n_muestras): # por cada vector x(n) de caracteristicas
-                distancias[n]=EUCLIDIANA(self.X[:,n],Y[:,i])
+        for i in range(len(X_train[0])): 
+            distancias=np.zeros(self.muestras)
+            for j in range(self.muestras): 
+                # por cada vector x(n) de caracteristicas
+                distancias[j]=dist_euclidiana(self.x[:,j],X_train[:,i])
             
-            # distancias mas cercanas
+            # Ordenamos las distancias mas cercanas segun la posicion en la cual se encuentren
             k_distancias=np.argsort(distancias)
-            # identificar las k distancias - clases
-            k_etiqueta=self.c[k_distancias[:self.k]]
-            print(k_etiqueta)
-            # votacion
-            c = Counter(k_etiqueta).most_common(1)#(5,0)
-            clases.append(c[0][0]) # almacenamos la clase asignada al vector y(n)
+
+            # Identificamos las k distancias con respecto a las clases
+            k_etiqueta=self.y[k_distancias[:self.k]]
+
+            clases_prioridad = Counter(k_etiqueta).most_common(1)
+
+            # Almacenamos la clase con mayor catidad de votos a la lista de predicciones
+            clases.append(clases_prioridad[0][0]) 
         return clases
             
 
-def EUCLIDIANA(x,y):
-    return np.sqrt(np.sum((x-y)**2))
+def dist_euclidiana(x,y):
+    #Aplicamos distancia euclidiana con respecto a cada punto
+    return np.sqrt(np.sum((x-y)**2)) 
