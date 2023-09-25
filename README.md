@@ -1,17 +1,27 @@
 # Proyecto_1-MachineLearning
 
-## Clasificacion por Regresion Logistica
+## Clasificación por Regresion Logistica
 El algoritmo de regresión logística es una técnica estadística para predecir variables categóricas mediante variables predictoras. Identifica factores que influyen en el resultado y es útil en análisis de datos.
 
 <p align="center">
  <img width="442" alt="image" src="https://github.com/LeoIsidro/Proyecto_1-MachineLearning/assets/90939274/46dd1046-2e9d-4018-99c0-57e5052f1cf9">
 </p>
 
+## Funciones utilizadas
+
+<p align="center">
+ <img width="734" alt="image" src="https://github.com/LeoIsidro/Proyecto_1-MachineLearning/assets/90939274/a6ff4d2a-9ea3-4273-b858-b80a685660d3">
+</p>
+
+
 ## Ventajas
-- Simplicidad:Los modelos de regresión logística son matemáticamente menos complejos que otros métodos de ML.
-- Eficiencia:Los modelos de regresión logística pueden procesar grandes volúmenes de datos a alta velocidad porque requieren menos capacidad computacional, como memoria y potencia de procesamiento
+- Simplicidad: Los modelos de regresión logística son matemáticamente menos complejos que otros métodos de ML.
+- Eficiencia: Los modelos de regresión logística pueden procesar grandes volúmenes de datos a alta velocidad porque requieren menos capacidad computacional, como memoria y potencia de procesamiento
 - Procesamiento: El análisis de regresión logística ofrece a los desarrolladores una mayor visibilidad de los procesos de software internos que otras técnicas de análisis de datos.
 
+## Desventajas
+- La regresión logística no se puede utilizar para resolver problemas no lineales y, lamentablemente, muchos de los sistemas actuales no son lineales.
+- La regresión logística también se basa en gran medida en la presentación de datos. Esto significa que, a menos que se haya identificado todas las variables independientes necesarias, la salida no tendrá valor.
 
 ## Clasificación por KNN
 
