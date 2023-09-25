@@ -1,7 +1,19 @@
 # Proyecto_1-MachineLearning
 
+## Clasificacion por Regresion Logistica
+El algoritmo de regresión logística es una técnica estadística para predecir variables categóricas mediante variables predictoras. Identifica factores que influyen en el resultado y es útil en análisis de datos.
 
-## Clasificación KNN
+<p align="center">
+ <img width="442" alt="image" src="https://github.com/LeoIsidro/Proyecto_1-MachineLearning/assets/90939274/46dd1046-2e9d-4018-99c0-57e5052f1cf9">
+</p>
+
+##Ventajas
+- Simplicidad:Los modelos de regresión logística son matemáticamente menos complejos que otros métodos de ML.
+- Eficiencia:Los modelos de regresión logística pueden procesar grandes volúmenes de datos a alta velocidad porque requieren menos capacidad computacional, como memoria y potencia de procesamiento
+- Procesamiento: El análisis de regresión logística ofrece a los desarrolladores una mayor visibilidad de los procesos de software internos que otras técnicas de análisis de datos.
+
+
+## Clasificación por KNN
 
 El algoritmo de clasificación de k vecinos más cercanos, también conocido como KNN o k-NN, es un clasificador de aprendizaje supervisado no paramétrico, que utiliza la proximidad para hacer clasificaciones o predicciones sobre la agrupación de un punto de datos individual.
 
