@@ -1,14 +1,13 @@
-import numpy as np
-from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import KFold
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import numpy as np
 import pandas as pd
 from  skimage.io import imread, imshow
-from knn import KNN
 import pywt
 import pywt.data
 import os
-from sklearn.neighbors import KNeighborsClassifier
 
 def Get_Feacture(picture, cortes):
   LL = picture
@@ -58,30 +57,26 @@ x,y= cargar_dataset()
 X=np.array(x)
 y=np.array(y)
 
-# Define el número de folds (por ejemplo, k=5)
-k = 5
+# Dividir el conjunto de datos en entrenamiento (70%), validación (15%) y prueba (15%)
+X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=42)
+X_valid, X_test, y_valid, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
 
-# Crea un objeto KFold para dividir los datos en k grupos
-kf = KFold(n_splits=k, shuffle=True, random_state=42)
+# Crear un modelo de regresión logística multiclase
+model = LogisticRegression(max_iter=1000)
 
-# Variables para almacenar las métricas de rendimiento
-accuracies = []
+# Entrenar el modelo en el conjunto de entrenamiento
+model.fit(X_train, y_train)
 
-# Realiza k iteraciones
-for train_index, test_index in kf.split(X):
-    X_train, X_test = X[train_index], X[test_index]
-    y_train, y_test = y[train_index], y[test_index]
-    
-    # Crea y entrena un modelo de k-NN
-    model = KNeighborsClassifier(n_neighbors=5)  # Configura el número de vecinos (k)
-    model.fit(X_train, y_train)
-    
-    # Evalúa el modelo en el conjunto de prueba
-    accuracy = model.score(X_test, y_test)
-    
-    # Almacena la precisión en la lista de accuracies
-    accuracies.append(accuracy)
+# Hacer predicciones en el conjunto de validación
+y_valid_pred = model.predict(X_valid)
 
-# Calcula la precisión promedio y otras métricas de rendimiento
-average_accuracy = np.mean(accuracies)
-print(f'Precisión promedio: {average_accuracy:.2f}')
+# Calcular la precisión en el conjunto de validación
+accuracy_valid = accuracy_score(y_valid, y_valid_pred)
+print("Precisión en el conjunto de validación:", accuracy_valid)
+
+# Hacer predicciones en el conjunto de prueba
+y_test_pred = model.predict(X_test)
+
+# Calcular la precisión en el conjunto de prueba
+accuracy_test = accuracy_score(y_test, y_test_pred)
+print("Precisión en el conjunto de prueba:", accuracy_test)

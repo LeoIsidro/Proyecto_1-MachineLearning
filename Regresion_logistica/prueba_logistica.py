@@ -1,14 +1,11 @@
+from regresion_logistica import Regresion
 import numpy as np
-from sklearn.datasets import load_iris
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import KFold
+import numpy as np
 import pandas as pd
 from  skimage.io import imread, imshow
-from knn import KNN
 import pywt
 import pywt.data
 import os
-from sklearn.neighbors import KNeighborsClassifier
 
 def Get_Feacture(picture, cortes):
   LL = picture
@@ -55,33 +52,36 @@ def acuary(y_prueba,y_correct):
 
 x,y= cargar_dataset()
 
-X=np.array(x)
+x=np.array(x)
 y=np.array(y)
 
-# Define el número de folds (por ejemplo, k=5)
-k = 5
+# Definimos los tamaños de los conjuntos (70% entrenamiento, 15% validación, 15% prueba)
+total_samples = len(x)
+train = int(0.7 * total_samples)
+validation = int(0.15 * total_samples)
 
-# Crea un objeto KFold para dividir los datos en k grupos
-kf = KFold(n_splits=k, shuffle=True, random_state=42)
+# Dividimoss los datos en conjuntos de entrenamiento, validación y prueba
+X_train = x[:train]
+y_train = y[:train]
 
-# Variables para almacenar las métricas de rendimiento
-accuracies = []
+X_val = x[train:train + validation]
+y_val = y[train:train + validation]
 
-# Realiza k iteraciones
-for train_index, test_index in kf.split(X):
-    X_train, X_test = X[train_index], X[test_index]
-    y_train, y_test = y[train_index], y[test_index]
-    
-    # Crea y entrena un modelo de k-NN
-    model = KNeighborsClassifier(n_neighbors=5)  # Configura el número de vecinos (k)
-    model.fit(X_train, y_train)
-    
-    # Evalúa el modelo en el conjunto de prueba
-    accuracy = model.score(X_test, y_test)
-    
-    # Almacena la precisión en la lista de accuracies
-    accuracies.append(accuracy)
+X_test = x[train + validation:]
+y_test = y[train + validation:]
 
-# Calcula la precisión promedio y otras métricas de rendimiento
-average_accuracy = np.mean(accuracies)
-print(f'Precisión promedio: {average_accuracy:.2f}')
+# Crear y entrenar el modelo
+modelo = Regresion(1000,0.000001)
+modelo.train(X_train, y_train)
+
+# Validacion
+y_pred_val = modelo.predict(X_val)
+precision_val=acuary(y_val,y_pred_val)
+
+print(f"Precisión en el conjunto de validación: {precision_val:.2f}")
+
+# Predicción
+y_pred_test = modelo.predict(X_test)
+precision_test=acuary(y_test,y_pred_test)
+
+print(f"Precisión en el conjunto de testeo: {precision_test:.2f}")
